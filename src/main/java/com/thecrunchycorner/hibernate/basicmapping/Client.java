@@ -1,4 +1,4 @@
-package com.thecrunchycorner.hibernate.basicMapping;
+package com.thecrunchycorner.hibernate.basicmapping;
 
 public class Client {
     private int crn;

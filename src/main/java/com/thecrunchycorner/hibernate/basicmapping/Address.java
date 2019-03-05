@@ -1,4 +1,4 @@
-package com.thecrunchycorner.hibernate.basicMapping;
+package com.thecrunchycorner.hibernate.basicmapping;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

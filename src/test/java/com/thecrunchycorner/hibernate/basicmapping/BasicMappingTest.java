@@ -1,6 +1,5 @@
-package com.thecrunchycorner.hibernate;
+package com.thecrunchycorner.hibernate.basicmapping;
 
-import com.thecrunchycorner.hibernate.basicMapping.Address;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import org.junit.Assert;
@@ -14,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class BasicMappingProcessorTest {
+public class BasicMappingTest {
 
     @Autowired
     private EntityManager em;
