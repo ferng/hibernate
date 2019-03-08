@@ -1,6 +1,5 @@
 package com.thecrunchycorner.hibernate.atformula;
 
-import com.thecrunchycorner.hibernate.mapgeneratedvalue.Address6;
 import java.time.LocalDateTime;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
