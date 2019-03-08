@@ -1,4 +1,4 @@
-package com.thecrunchycorner.hibernate.namedquery;
+package com.thecrunchycorner.hibernate.jpqlnamedquery;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

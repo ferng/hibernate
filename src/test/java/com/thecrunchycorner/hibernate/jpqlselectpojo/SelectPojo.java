@@ -1,4 +1,4 @@
-package com.thecrunchycorner.hibernate.jpqlnamedquery;
+package com.thecrunchycorner.hibernate.jpqlselectpojo;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class NamedQuery {
+public class SelectPojo {
 
     @Autowired
     private EntityManager em;
@@ -23,8 +23,8 @@ public class NamedQuery {
     @Transactional
     @Commit
     public void process() {
-        Account10 ac1 = new Account10();
-        Account10 ac2 = new Account10();
+        Account11 ac1 = new Account11();
+        Account11 ac2 = new Account11();
 
         ac1.setId(3L);
         ac1.setCrn(33L);
@@ -34,12 +34,18 @@ public class NamedQuery {
         em.persist(ac1);
         em.persist(ac2);
 
-        TypedQuery<Account10> query =
-                em.createNamedQuery(Account10.QUERY_SELECT_BY_ID, Account10.class);
+        TypedQuery<Account11back> query = em.createQuery(
+                "SELECT " +
+                        "new com.thecrunchycorner.hibernate.jpqlselectpojo.Account11back (" +
+                        "a.id, a.crn) FROM Account11 a " +
+                        "WHERE a.id = :id",
+                Account11back.class
+        );
 
-        query.setParameter(Account10.PARAM_ID, 3L);
 
-        Account10 actualAc = query.getSingleResult();
+        query.setParameter("id", 3L);
+
+        Account11back actualAc = query.getSingleResult();
 
         Assert.assertEquals(33, actualAc.getCrn());
 
